@@ -4,3 +4,20 @@ let todos = [
   {id: 3, text: "Get oil change", complete: false},
   {id: 4, text: "Write thank-you notes", complete: false},
 ];
+
+//establishing the prepopulated list of todos 
+function loadTodos(){
+  var i;
+  for (var i=0; i < todos.length; i++){
+	document.getElementById('main-todo-list').innerHTML += '<div class="todo"><input type="checkbox" class="todo-checkbox" /><span class="todo-text">' + todos[i].text + '</span></div>';
+  }
+}
+
+
+//triggering function to load propulated list of todos on page
+window.addEventListener('load', function (){
+  loadTodos();
+});
+
+
+
