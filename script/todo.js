@@ -9,15 +9,25 @@ let todos = [
 function loadTodos(){
   var i;
   for (var i=0; i < todos.length; i++){
-	document.getElementById('main-todo-list').innerHTML += '<div class="todo"><input type="checkbox" class="todo-checkbox" /><span class="todo-text">' + todos[i].text + '</span></div>';
+	document.getElementById('main-todo-list').innerHTML += '<div class="todo" id="todoDiv"><input type="checkbox" class="todo-checkbox" /><span class="todo-text">' + todos[i].text + '</span></div>';
   }
 }
-
 
 //triggering function to load propulated list of todos on page
 window.addEventListener('load', function (){
   loadTodos();
+  markComplete();
 });
 
-
+//marking completed items complete 
+function markComplete(){
+  var checkboxes = document.getElementsByClassName('todo-checkbox');
+  for(i=0; i < checkboxes.length; i++){
+    document.getElementById("todoDiv").setAttribute('id', 'todoDiv ' + i);
+    checkboxes[i].addEventListener('click', function(){
+      console.log("this was a test on checbox " + i);
+      
+    });
+  }
+};
 
